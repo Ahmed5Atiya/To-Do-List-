@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+ul , li {
+    list-style: none;
+}
+body {
+    height: 100vh;
+
+}
+.background {
+    padding: 20px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 20px;
+    background-color: rgb(142, 11, 182);
+}
+
+.background li {
+    height: 280px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px 20px 30px ;
+    box-shadow: 1px 1px 10px black ;
+}
+.add-box , .botton-content ,  .sitting , .menu li  , .popup , header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+}
+.add-box  {
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+.add-box .icon {
+        font-size: 70px;
+        font-weight: 400;
+        color: rgb(0, 163, 172);
+        padding: 40px;
+        border-radius: 50%;
+        border: 3px dashed rgb(0, 163, 172);
+        margin-bottom: 18px;
+        cursor: pointer;
+}
+.add-box p {
+    font-size: 23px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: rgb(0, 163, 172);
+}
+.note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+.note .detailes {
+    max-height: 165px;
+    overflow: hidden;
+}
+ .note .detailes::-webkit-scrollbar,
+.popup textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+.note .detailes:hover:-webkit-scrollbar,
+.popup textarea:hover:-webkit-scrollbar {
+    width: 10px;
+}
+.note .detailes:hover::-webkit-scrollbar-track,
+.popup textarea:hover::-webkit-scrollbar-track {
+    background-color: #dbdbdb;
+    border-radius: 25px;
+}
+.note .detailes:hover::-webkit-scrollbar-thumb,
+.popup textarea:hover::-webkit-scrollbar-thumb {
+    background-color: #0534cc;
+    border-radius: 25px;
+} 
+
+.note p {
+ font-size: 23px;
+    font-weight: 600;
+}
+.note span {
+        display: block;
+            color: #575757;
+            font-size: 17px;
+            margin-top: 5px;
+}
+
+.note .botton-content {
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+.botton-content span {
+    color: rgb(45, 45, 45);
+    font-size: 14px;
+}
+.botton-content .sitting {
+    position: relative;
+}
+.botton-content .sitting i {
+    color: #575757;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.sitting .menu {
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+    background-color: #fff;
+    padding: 5px 0 ;
+    border-radius: 6px;
+    transform: scale(0);
+    transform-origin: bottom right;
+    box-shadow: 0 0 6px rgba(0, 0, 0 ,0.15);
+    z-index: 1;
+}
+.sitting.show .menu {
+    transform: scale(1);
+}
+.sitting .menu li {
+    height: 25px;
+    font-size: 16px;
+    margin-bottom: 2px;
+    justify-content: flex-start;
+    padding: 16px 15px ;
+    cursor: pointer;
+    border-radius: 0;
+    box-shadow: none;
+} 
+.menu li:last-child {
+    margin-bottom: 0;
+}
+.menu li:hover {
+    background-color: #f5f5f5;
+}
+.menu li i {
+    padding-right:  8px;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0,0.4);
+    z-index: 2;
+}
+
+.popup-box .popup {
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-width: 400px;
+    transform: translate(-50% , -50%) scale(0.95);
+    z-index: 3;
+}
+.popup-box,.popup{
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+.popup-box.show,
+.popup-box.show .popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+.popup-box.show .popup {
+    transform: translate(-50%,-50%) scale(1);
+}
+.popup .content {
+    width: calc(100% - 15px);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.content header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ccc;
+}
+.content header p {
+    font-size: 20px;
+    font-weight: 600px;
+}
+.content header i {
+    color: #777;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.content form {
+    margin: 15px 25px 23px;
+}
+.content form .row{
+    margin-bottom: 20px;
+}
+.content form .row  label{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 6px;
+
+}
+.content form  :where(input , textarea) {
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 5px ;
+    height: 40px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #999;
+}
+.content form :where(input, textarea):focus {
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.22) ;
+}
+.content form .row textarea {
+    height: 180px;
+    resize: none;
+    padding: 8px 15px;
+}
+.content form button {
+    width: 100%;
+    height: 50px;
+    background-color: #0534cc;
+    color: white;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#finished{
+        position: absolute;
+        padding: 8px;
+        background-color: #eee;
+        border-radius: 50%;
+        right: 17px;
+        top: 8px;
+        border: 1px solid black;
+        cursor: pointer;
+        transition: all ease-in 0.3s;
+}
+
